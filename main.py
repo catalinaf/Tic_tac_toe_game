@@ -19,7 +19,6 @@ def get_input(symbol):
 
     return player_input
 
-
 def update_and_print_grid():
     grid = f'''
         a   b   c 
@@ -31,6 +30,7 @@ def update_and_print_grid():
     3   {cells[6]} | {cells[7]} | {cells[8]} 
     '''
 
+    print("To choose a cell introduce a letter + a number. Example: 'a1'")
     print(grid)
 
 def check_winner(introduced_symbol):
@@ -62,10 +62,10 @@ while game_on:
     system('clear')
     update_and_print_grid()
     game_on = check_winner(cells[cells_mapping[x_player_input]])
-    if ' ' not in cells:
-        print("It's a draw.")
+    if game_on == False:
         break
-    elif game_on == False:
+    elif ' ' not in cells:
+        print("It's a draw.")
         break
 
     o_player_input = get_input('O')
